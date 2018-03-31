@@ -1,0 +1,44 @@
+.big_button{
+    /* background: blue; */
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.poke_button{
+    color: white;
+    margin: 25px 25px 0px 25px;
+    height: 114.68px;
+    width: 114.68px;
+    background: rgb(255, 0, 0);
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    /* font-family: 'Press Start 2P', cursive; */
+  }
+  p{
+      margin: 0;
+      box-sizing: border-box;
+  }
+  .button_sprite{
+      box-sizing: border-box;
+      float: inherit;
+  }
+  .rename_button{
+      background: white;
+      box-sizing: border-box;
+      margin-bottom: 25px;
+      width: 114.68px;
+      border: 0;
+      border-top: 3px solid black;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      cursor: pointer;
+  }

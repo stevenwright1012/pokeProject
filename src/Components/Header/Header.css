@@ -1,0 +1,53 @@
+.top{
+    padding: 50px;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background: url("https://img00.deviantart.net/3f4a/i/2013/075/1/b/pokemon_wallpaper___pokeball_by_kennedyzak-d5y9x2z.png") center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-sizing: border-box;
+  }
+  .batte_image{
+      height: 100%;
+      width: 100%;
+  }
+  .battle_button{
+      height: 40px;
+      border: 0;
+      border-radius: 20px;
+      background:white;
+      position: absolute;
+        top: 10px;
+        left: 10px; 
+  }
+  .pokemon{
+    height: 100%;
+    width: 300px;
+    margin: 50px 25px;
+    background: url("https://sixprizes.com/wp-content/uploads/2014/05/poke-ball-open-beginning-1.jpg");
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    border-radius: 10%;
+  }
+  .reset_button{
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    background: red;
+    position: absolute;
+        bottom: 10px;
+        right: 10px;
+  }
+  .App-logo {
+    animation: App-logo-spin infinite 1s linear;
+    height: 80px;
+  }
+  @keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
