@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 .main{
-  background: rgb(32, 32, 83);
+  background: black;
   position: relative;
   top:400px;
   padding: 25px;

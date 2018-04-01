@@ -25,14 +25,19 @@
         top: 10px;
         left: 10px; 
   }
+  .poke_phrase{
+      width: 150px;
+  }
   .pokemon{
     height: 100%;
     width: 300px;
-    margin: 50px 25px;
+    margin: 50px;
     background: url("https://sixprizes.com/wp-content/uploads/2014/05/poke-ball-open-beginning-1.jpg");
     background-size: 100% 100%;
     box-sizing: border-box;
     border-radius: 10%;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
   }
   .reset_button{
     height: 40px;
