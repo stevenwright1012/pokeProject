@@ -10,8 +10,14 @@
   position: relative;
   top:400px;
   padding: 25px;
-  
-}
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+  align-content: space-around;
+} 
+
 .buttons{
 	display: flex;
 	flex-direction: row;

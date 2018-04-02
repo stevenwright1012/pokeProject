@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Spinner from './Spinner';
 import './Header.css'
-
+import PokeBox from './PokeBox/PokeBox'
 
 class Header extends Component{
     constructor(){
         super()
 
         this.state = {
+            battled: false,
             pokePhraseLeft: '',
             pokePhraseRight: '',
         }
@@ -23,28 +24,32 @@ class Header extends Component{
         let pokemon1 = this.props.pokemon1;
         let pokemon2 = this.props.pokemon2;
         let postBattle1 = (pokemon1.stats[5].base_stat -pokemon2.stats[4].base_stat) + pokemon1.stats[3].base_stat;
-        let postBattle2 = (pokemon2.stats[5].base_stat - pokemon1.stats[4].base_stat) + pokemon1.stats[3].base_stat;
+        let postBattle2 = (pokemon2.stats[5].base_stat - pokemon1.stats[4].base_stat) + pokemon2.stats[3].base_stat;
         if (postBattle1 > postBattle2){
             this.setState({
-                pokePhraseLeft: `${pokemon1.name} is the winner`,
-                pokePhraseRight: `${pokemon2.name} is the loser`
+                battled: true,
+                pokePhraseLeft: `${pokemon1.name.charAt(0).toUpperCase() + pokemon1.name.slice(1)} is the winner!`,
+                pokePhraseRight: `${pokemon2.name.charAt(0).toUpperCase() + pokemon2.name.slice(1)} is the loser.`
             })
         }
         else if(postBattle1 < postBattle2){
             this.setState({
-                pokePhraseLeft:`${pokemon1.name} is the loser`,
-                pokePhraseRight: `${pokemon2.name} is the winner`,
+                battled: true,
+                pokePhraseLeft:`${pokemon1.name.charAt(0).toUpperCase() + pokemon1.name.slice(1)} is the loser.`,
+                pokePhraseRight: `${pokemon2.name.charAt(0).toUpperCase() + pokemon2.name.slice(1)} is the winner!`,
             })
         }else if(postBattle2 === postBattle1){
             this.setState({
-                pokePhraseLeft: "It's a tie",
-                pokePhraseRight: "It's a tie"
+                battled: true,
+                pokePhraseLeft: "It's a tie!",
+                pokePhraseRight: "It's a tie!"
             })
         }
     }
     }
     reset(){
         this.setState({
+            battled: false,
             pokePhraseLeft:"",
             pokePhraseRight: "",
         })
@@ -55,41 +60,45 @@ class Header extends Component{
             <div className="top">
                 <div className="poke_phrase">
                 {
-                <h1>{this.state.pokePhraseLeft}</h1>
+                    this.state.battled === false && this.props.pokemon1Full === true
+                    ?
+                    <div className="stats">
+                    <p>HP:{JSON.stringify(this.props.pokemon1.stats[5].base_stat)}</p>
+                    <p>Attack: {JSON.stringify(this.props.pokemon1.stats[4].base_stat)}</p>
+                    <p>Defense: {JSON.stringify(this.props.pokemon1.stats[3].base_stat)}</p>
+                    <p>Speed: {JSON.stringify(this.props.pokemon1.stats[0].base_stat)}</p>
+                    </div>
+                    :
+                    <h1>{this.state.pokePhraseLeft}</h1>
                 }
                 </div>
                 <button className="battle_button" onClick={this.battle}>
                     Battle!
                 </button>
-                <div className="pokemon">
-                {this.props.pokemon1.name}
-                {
-                    this.props.pokemon1Full
-                    ?
-                    <img className="batte_image" src={`./pokesprites/${this.props.pokemon1.id}.png`} alt="pokemon"/>
-                    :
-                    null
-                }
-                </div>
+                <PokeBox pokemon={this.props.pokemon1}
+                pokemonFull={this.props.pokemon1Full}/>
                 {
                     this.props.loading
                     ?
                     <Spinner />
                     :
-                    <h1>VS</h1>
+                    <h2>VS</h2>
                 }
-                <div className="pokemon">
-                {this.props.pokemon2.name}
-                {
-                    this.props.pokemon2Full
-                    ?
-                    <img className="batte_image" src={`./pokesprites/${this.props.pokemon2.id}.png`} alt="pokemon"/>
-                    :
-                    null
-                }
-                </div>
+                <PokeBox pokemon={this.props.pokemon2}
+                pokemonFull={this.props.pokemon2Full}/>
                 <div className="poke_phrase">
+                {
+                    this.state.battled === false && this.props.pokemon2Full === true
+                    ?
+                    <div className="stats">
+                    <p>HP:{JSON.stringify(this.props.pokemon2.stats[5].base_stat)}</p>
+                    <p>Attack: {JSON.stringify(this.props.pokemon2.stats[4].base_stat)}</p>
+                    <p>Defense: {JSON.stringify(this.props.pokemon2.stats[3].base_stat)}</p>
+                    <p>Speed: {JSON.stringify(this.props.pokemon2.stats[0].base_stat)}</p>
+                    </div>
+                    :
                     <h1>{this.state.pokePhraseRight}</h1>
+                }
                 </div>
                 <button className='reset_button'onClick={this.reset}>Reset</button>
             </div>

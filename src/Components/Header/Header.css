@@ -1,3 +1,7 @@
+@font-face{
+    font-family: Pokemon;
+    src: url('Pokemon Solid.ttf')
+}
 .top{
     padding: 50px;
     width: 100%;
@@ -26,7 +30,33 @@
         left: 10px; 
   }
   .poke_phrase{
-      width: 150px;
+      width: 25vw;
+      font-family: 'Pokemon', 'Press Start 2P';
+      text-align: center;
+      color: yellow;
+      line-height: 1.6;
+      letter-spacing: 9px;
+  }
+  h2{
+      font-family: "Press Start 2P", "helvetica"
+  }
+  h1{
+    font-family: 'Pokemon', 'Press Start 2P';
+    text-align: center;
+    color: yellow;
+    line-height: 1.6;
+    letter-spacing: 9px;
+    text-shadow:
+    -3px -3px 0 blue,
+    3px -3px 0 blue,
+    -3px 3px 0 blue,
+    3px 3px 0 blue;
+  }
+  .stats{
+      font-family: "Press Start 2P", "helvetica";
+      color: black;
+      text-shadow: 0;
+      
   }
   .pokemon{
     height: 100%;

@@ -9,8 +9,8 @@ class App extends Component {
     super()
 
     this.state = {
-      pokemon1: {},
-      pokemon2: {},
+      pokemon1: {name: ""},
+      pokemon2: {name: ""},
       pokemon1Full: false,
       pokemon2Full: false,
       loading: false,
@@ -45,8 +45,8 @@ class App extends Component {
   }
   resetPokemon(){
     this.setState({
-      pokemon1: {},
-      pokemon2: {},
+      pokemon1: {name: ""},
+      pokemon2: {name: ""},
       pokemon1Full: false,
       pokemon2Full: false,
     })
@@ -67,6 +67,7 @@ class App extends Component {
         pokemon1Full={this.state.pokemon1Full}
         pokemon2Full={this.state.pokemon2Full}
         loading={this.state.loading}/>
+
         <div className="main">
           <div className="buttons">
           {buttons}
