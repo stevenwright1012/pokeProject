@@ -34,9 +34,9 @@
       width: 25vw;
       font-family: 'Pokemon', 'Press Start 2P';
       text-align: center;
-      color: yellow;
       line-height: 1.6;
       letter-spacing: 9px;
+      font-size: 30px;
   }
   h2{
       font-family: "Press Start 2P", "helvetica"
@@ -47,17 +47,19 @@
     color: yellow;
     line-height: 1.6;
     letter-spacing: 9px;
-    text-shadow:
+    /* text-shadow:
     -3px -3px 3px blue,
     3px -3px 3px blue,
     -3px 3px 3px blue,
-    3px 3px 3px blue;
+    3px 3px 3px blue; */
+    /* text-outline: 3px 3px blue; */
+    -webkit-text-stroke: 3px blue;
   }
   .stats{
       font-family: "Press Start 2P", "helvetica";
       color: black;
       text-shadow: 0;
-      
+      font-size: 18px;
   }
   .pokemon{
     height: 100%;
