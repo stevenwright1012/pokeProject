@@ -26,7 +26,7 @@ class Button extends Component{
     click(){
         this.props.loadingFn()
         axios.get(`https://pokeapi.co/api/v2/pokemon/${this.props.number}`).then(res => {
-        this.props.setPokemonFn(res.data)
+        this.props.setPokemonFn(res.data, this.state.pokemon.name)
         })
     }
 

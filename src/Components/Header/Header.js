@@ -28,15 +28,15 @@ class Header extends Component{
         if (postBattle1 > postBattle2){
             this.setState({
                 battled: true,
-                pokePhraseLeft: `${pokemon1.name.charAt(0).toUpperCase() + pokemon1.name.slice(1)} is the winner!`,
-                pokePhraseRight: `${pokemon2.name.charAt(0).toUpperCase() + pokemon2.name.slice(1)} is the loser.`
+                pokePhraseLeft: `${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.slice(1)} is the winner!`,
+                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.slice(1)} is the loser.`
             })
         }
         else if(postBattle1 < postBattle2){
             this.setState({
                 battled: true,
-                pokePhraseLeft:`${pokemon1.name.charAt(0).toUpperCase() + pokemon1.name.slice(1)} is the loser.`,
-                pokePhraseRight: `${pokemon2.name.charAt(0).toUpperCase() + pokemon2.name.slice(1)} is the winner!`,
+                pokePhraseLeft:`${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.slice(1)} is the loser.`,
+                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.slice(1)} is the winner!`,
             })
         }else if(postBattle2 === postBattle1){
             this.setState({
@@ -76,7 +76,8 @@ class Header extends Component{
                     Battle!
                 </button>
                 <PokeBox pokemon={this.props.pokemon1}
-                pokemonFull={this.props.pokemon1Full}/>
+                pokemonFull={this.props.pokemon1Full}
+                name={this.props.pokemon1Name}/>
                 {
                     this.props.loading
                     ?
@@ -85,7 +86,8 @@ class Header extends Component{
                     <h2>VS</h2>
                 }
                 <PokeBox pokemon={this.props.pokemon2}
-                pokemonFull={this.props.pokemon2Full}/>
+                pokemonFull={this.props.pokemon2Full}
+                name={this.props.pokemon2Name}/>
                 <div className="poke_phrase">
                 {
                     this.state.battled === false && this.props.pokemon2Full === true

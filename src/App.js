@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
       pokemon1: {name: ""},
       pokemon2: {name: ""},
+      pokemon1Name: "",
+      pokemon2Name: "",
       pokemon1Full: false,
       pokemon2Full: false,
       loading: false,
@@ -26,16 +28,18 @@ class App extends Component {
     })
   }
 
-  setPokemon(obj){
+  setPokemon(obj, name){
     if(this.state.pokemon1Full === false && this.state.pokemon2Full === false){
       this.setState({
         pokemon1 : obj,
+        pokemon1Name: name,
         pokemon1Full: true,
         loading: false,
      })
     }else if(this.state.pokemon1Full === true && this.state.pokemon2Full === false){
       this.setState({
         pokemon2: obj,
+        pokemon2Name: name,
         pokemon2Full: true,
         loading: false,
       })
@@ -47,6 +51,8 @@ class App extends Component {
     this.setState({
       pokemon1: {name: ""},
       pokemon2: {name: ""},
+      pokemon1Name: "",
+      pokemon2Name: "",
       pokemon1Full: false,
       pokemon2Full: false,
     })
@@ -63,6 +69,8 @@ class App extends Component {
       <div>
         <Header pokemon1={this.state.pokemon1}
         pokemon2={this.state.pokemon2}
+        pokemon1Name={this.state.pokemon1Name}
+        pokemon2Name={this.state.pokemon2Name}
         resetFn={this.resetPokemon}
         pokemon1Full={this.state.pokemon1Full}
         pokemon2Full={this.state.pokemon2Full}
