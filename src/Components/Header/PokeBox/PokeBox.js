@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import '../Header.css'
 class PokeBox extends Component{
     render(){
@@ -8,7 +7,7 @@ class PokeBox extends Component{
                 {
                     this.props.name
                     ?
-                    this.props.name.toUpperCase()
+                    <p>{this.props.name.toUpperCase()}</p>
                     :
                     this.props.name
                 }
@@ -16,7 +15,6 @@ class PokeBox extends Component{
                     this.props.pokemonFull
                     ?
                     <img className="batte_image" src={`./pokesprites/${this.props.pokemon.id}.png`} alt="pokemon"/>
-                    // getName();
                     :
                     null
                 }

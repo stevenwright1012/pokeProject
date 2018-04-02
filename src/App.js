@@ -44,7 +44,10 @@ class App extends Component {
         loading: false,
       })
     }else if(this.state.pokemon1Full === true && this.state.pokemon2Full === true){
-
+      alert("Both PokeSlots are full! Press 'Reset' to see a different pairing")
+      this.setState({
+        loading: false,
+      })
     }
   }
   resetPokemon(){

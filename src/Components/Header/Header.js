@@ -14,6 +14,7 @@ class Header extends Component{
         }
         this.battle = this.battle.bind(this)
         this.reset = this.reset.bind(this)
+        this.stats = this.stats.bind(this)
     }
 
     battle(){
@@ -28,15 +29,15 @@ class Header extends Component{
         if (postBattle1 > postBattle2){
             this.setState({
                 battled: true,
-                pokePhraseLeft: `${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.slice(1)} is the winner!`,
-                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.slice(1)} is the loser.`
+                pokePhraseLeft: `${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.toLowerCase().slice(1)} is the winner!`,
+                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.toLowerCase().slice(1)} is the loser.`
             })
         }
         else if(postBattle1 < postBattle2){
             this.setState({
                 battled: true,
-                pokePhraseLeft:`${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.slice(1)} is the loser.`,
-                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.slice(1)} is the winner!`,
+                pokePhraseLeft:`${this.props.pokemon1Name.charAt(0).toUpperCase() + this.props.pokemon1Name.toLowerCase().slice(1)} is the loser.`,
+                pokePhraseRight: `${this.props.pokemon2Name.charAt(0).toUpperCase() + this.props.pokemon2Name.toLowerCase().slice(1)} is the winner!`,
             })
         }else if(postBattle2 === postBattle1){
             this.setState({
@@ -54,6 +55,11 @@ class Header extends Component{
             pokePhraseRight: "",
         })
         this.props.resetFn();
+    }
+    stats(){
+        this.setState({
+            battled: false,
+        })
     }
     render(){
         return(
@@ -102,6 +108,7 @@ class Header extends Component{
                     <h1>{this.state.pokePhraseRight}</h1>
                 }
                 </div>
+                <button className='stats_button' onClick={this.stats}>Stats</button>
                 <button className='reset_button'onClick={this.reset}>Reset</button>
             </div>
         )
